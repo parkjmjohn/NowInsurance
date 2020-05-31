@@ -1,7 +1,7 @@
 # NowInsurance
 
 ## Keywords
-automated data entry; machine learning; optical character recognition; natural language processing;
+automated data entry; machine learning; optical character recognition; text mining; natural language processing;
 
 ## Project Flow
 1. convert mixed media PDFs to text-only PDFs
@@ -9,22 +9,29 @@ automated data entry; machine learning; optical character recognition; natural l
 3. extract information from XML
 
 ## Modules
-- classifyPDF – classify if the PDF is images or texts
-- textToPDF.py – text PDFs to text files
-- tesseract.py – image PDFs to text files through optical character recognition
-- (1) performance test
-- ML
 
-### Similar Projects
-- MagicBot by SlickPie
-- GROBID
+#### PDF to Text files Process
+**PDFtoText.py** handles this process. First, the code check if the PDFs are text-based or image-based. If the PDF is text-based, the python library _pdftotext_ handles this well. If the PDF is imaged, the python library _wand_ converts the PDF to JPEGs and _pytesseract_ uses an optic character recognition model to convert the JPEGs to text.
 
-### PDF -> Text Projects
-- Freek.dev
+To run this process, run the following command:
+'''
+cd ./PDFtoText ; python3 os.py
+'''
 
-#### Python3 Libraries
+#### NLP research
+#### NLP Model
+#### Performance Analysis
+
+## Python3 Libraries
 - os
 - shutil
 - pdftotext
 - pytesseract
 - wand
+
+## Similar Projects
+- MagicBot by SlickPie
+- GROBID
+
+### PDF -> Text Projects
+- Freek.dev

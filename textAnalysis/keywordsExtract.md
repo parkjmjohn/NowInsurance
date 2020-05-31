@@ -1,0 +1,14 @@
+## Keywords
+- Report valuation date
+- Policy year
+- Claim report date
+- Incident date
+- Status
+- Name of Defendant
+- Name of Plaintiff
+- Date closed
+- Expenses – paid & reserved
+- Indemnity – paid and reserved
+- Total incurred amount
+- Claim code 9?)
+- Description

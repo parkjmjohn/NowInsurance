@@ -1,3 +1,4 @@
 .DS_Store
-/textToPDF/inputPDFs/
-/textToPDF/outdoorPDFs/
+__pycache__
+/PDFtoText/inputPDFs/
+/PDFtoText/outdoorPDFs/
