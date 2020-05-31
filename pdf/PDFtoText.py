@@ -7,6 +7,7 @@ from wand.image import Image as wi
 function: identifyPDF
 parameters: path
 output:
+requirements:
 '''
 def identifyPDF(path):
     textPDFs = []
@@ -24,6 +25,7 @@ def identifyPDF(path):
 function: checkScanned
 parameters:
 output: return if the PDF was scanned
+requirements:
 '''
 def checkScanned():
     return 0
@@ -33,13 +35,15 @@ def checkScanned():
 function: textPDFConversion
 parameters: textPDF, path
 output:
+requirements:
 '''
 def textPDFConversion(textPDF, path):
     # count = 0
     for pdf in textPDF:
         # count += 1
         # print(f'interation {count}, working with PDF {pdf}')
-        filename = str(pdf)[12:-4] + ".txt"
+        charIndex = str(pdf).rfind("/") + 1
+        filename = str(pdf)[charIndex:-4] + ".txt"
         file = open(filename,"w")
         with open(pdf, "rb") as f:
             pdf = pdftotext.PDF(f)
@@ -61,15 +65,17 @@ def textPDFConversion(textPDF, path):
 function: imagePDFConversion
 parameters: pdf
 output:
+requirements:
 '''
 def imagePDFConversion(path, pdf):
-    pdf = wi(filename = f, resolution = 300)
-    image = pdf.convert('jpeg')
+    pdfImage = wi(filename = pdf, resolution = 300)
+    image = pdfImage.convert('jpeg')
     imageBlobs = []
     for img in image.sequence:
         imgPage = wi(image = img)
         imageBlobs.append(imgPage.make_blob('jpeg'))
-    filename = f[12:-4] + "V2.txt"
+    charIndex = str(pdf).rfind("/") + 1
+    filename = pdf[charIndex:-4] + "V2.txt"
     file = open(filename,"w")
     for imgBlob in imageBlobs:
         image = Image.open(io.BytesIO(imgBlob))
