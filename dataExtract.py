@@ -1,13 +1,13 @@
-import pdf.PDFtoText as p
+import PDFConversion.PDFtoText as p
 
 inputDIR = "./inputPDFs/"
 outputDIR = "./outputPDFs/"
-imagePDFs = []
-textPDFs = []
+imagePDF = []
+textPDF = []
 
-# x = p.identifyPDF(inputDIR)
-# textPDFs = x[0]
-# imagePDFs = x[1]
-#
-# p.textPDFConversion(textPDFs, outputDIR)
-p.imagePDFConversion(outputDIR, "./pdf/testPNGs/testSample2.png")
+convertedPDF = p.identifyPDF(inputDIR)
+textPDF = convertedPDF[0]
+imagePDF = convertedPDF[1]
+
+p.textPDFConversion(textPDF, outputDIR)
+p.imagePDFConversion(imagePDF, outputDIR)
